@@ -40,40 +40,40 @@ std::string workspace(const std::string& stroka) {
 }
 
 std::string infx2pstfx(std::string inf) {
-  TStack<char, 100> stack1;
-  std::string postvir;
-  for (auto& i : inf) {
-    int prior = getPrior(i);
-    if (prior == -1) {
-      postvir += i;
-    } else {
-      if (prior == 0 || stack1.get() < prior || stack1.isEmpty()) {
-        stack1.push(i);
-      } else if (i == ')') {
-        char helper = stack1.get();
-        while (getPrior(helper) >= prior) {
-          postvir += helper;
-          stack1.pop();
-          helper = stack1.get();
+    std::string postvir;
+    TStack<char, 100> stack1;
+    for (auto& op : inf) {
+        int prior = getPrior(op);
+        if (prior == -1) {
+            postvir += op;
+        } else {
+            if (prior == 0 || stack1.get() < prior || stack1.isEmpty()) {
+                stack1.push(op);
+            } else if (op == ')') {
+                char helper = stack1.get();
+                while (getPrior(helper) >= prior) {
+                    postvir += helper;
+                    stack1.pop();
+                    helper = stack1.get();
+                }
+                stack1.pop();
+            } else {
+                char helper = stack1.get();
+                while (getPrior(helper) >= prior) {
+                    postvir += helper;
+                    stack1.pop();
+                    helper = stack1.get();
+                }
+                stack11.push(op);
+            }
         }
-        stack1.pop();
-      } else {
-        char helper = stack1.get();
-        while (getPrior(helper) >= prior) {
-          postvir += helper;
-          stack1.pop();
-          helper = stack1.get();
-        }
-        stack1.push(i);
-      }
     }
-  }
-  while (!stack1.isEmpty()) {
+    while (!stack1.isEmpty()) {
         postvir += stack1.get();
         stack1.pop();
     }
-  postvir = workspace(postvir);
-  return postvir;
+    postvir = workspace(postvir);
+    return postvir;
 }
 
 int counting(const int& i, const int& j, const int& ch) {
