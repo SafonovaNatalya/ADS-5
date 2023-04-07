@@ -8,16 +8,22 @@ int getPrior(char ch) {
   switch (ch) {
   case '(':
   return 0;
+  break;
   case ')':
   return 1;
+  break;
   case '+':
   case '-':
   return 2;
+  break;
   case '*':
   case '/':
   return 3;
-  }
+  break;
+  default:
   return -1;
+  break;
+  }
 }
 
 std::string infx2pstfx(std::string inf) {
@@ -74,8 +80,10 @@ int counting(int i, int j, char ch) {
   return i * j;
   case '/':
   return i/j;
+  default:
+  break;
   }
-  return 0;
+  return: -1;
 }
 
 int eval(std::string pref) {
