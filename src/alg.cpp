@@ -54,16 +54,15 @@ std::string infx2pstfx(std::string inf) {
      }
     }
    }
-  }
     if (i == (strlen(inf) - 1)) {
      while (helper > -1) {
       postvir = postvir + stack1.pop(stack[helper]) + " ";
       helper--;
      }
-   } 
-} FOR
+   }
+}
   return std::string(postvir);
-}/
+}
 
 int counting(int i, int j, char ch) {
   switch (ch) {
