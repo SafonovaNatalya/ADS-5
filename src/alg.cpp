@@ -2,6 +2,7 @@
 #include <string>
 #include <map>
 #include "tstack.h"
+#include <cstring>
 
 int getPrior(char ch) {
   switch (ch) {
@@ -22,7 +23,7 @@ int getPrior(char ch) {
 std::string infx2pstfx(std::string inf) {
   TStack<char, 100> stack1;
   std::string postvir = "";
-  for (int i = 0; i < strlen(inf); i++) {
+  for (int i = 0; i < inf.size(); i++) {
     int prior = getPrior(inf[i]);
     if (prior == -1) {
       postvir += inf[i];
@@ -84,7 +85,7 @@ int eval(std::string pref) {
     if (getPrior(pref[i]) == -1) {
       if (pref[i] == ' ') {
         continue;
-      } else if (isdigit(post[i+1])) {
+      } else if (isdigit(pref[i+1])) {
         helper += pref[i];
         continue;
       } else {
