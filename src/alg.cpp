@@ -41,7 +41,6 @@ std::string infx2pstfx(std::string inf) {
      } else {
       postvir = postvir + stack1.pop(stack[helper]) + " ";
       stack1.push(inf[i]);
-     }
     }
   } else if (inf[i] == ')') {
      while (stack1[helper] != '(') {
@@ -53,13 +52,13 @@ std::string infx2pstfx(std::string inf) {
       helper--;
      }
     }
-   }
-    if (i == (strlen(inf) - 1)) {
+  }
+  if (i == (strlen(inf) - 1)) {
      while (helper > -1) {
       postvir = postvir + stack1.pop(stack[helper]) + " ";
       helper--;
      }
-   }
+/  }
 }
   return std::string(postvir);
 }
