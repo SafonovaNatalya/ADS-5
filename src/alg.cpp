@@ -83,6 +83,7 @@ int counting(int i, int j, char ch) {
   default:
   break;
   }
+  return -1;
 }
 
 int eval(std::string pref) {
