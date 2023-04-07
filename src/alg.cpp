@@ -44,14 +44,14 @@ std::string workspace(const std::string& stroka) {
 std::string infx2pstfx(std::string inf) {
   TStack<char, 100> stack1;
   std::string postvir = "";
-  for (int i = 0; i < inf.size(); i++) {
-    int prior = getPrior(inf[i]);
+  for (auto& i : inf) {
+    int prior = getPrior(i);
     if (prior == -1) {
-      postvir += inf[i];
+      postvir += i;
     } else {
       if (stack1.get() < prior || prior == 0 || stack1.isEmpty()) {
-        stack1.push(inf[i]);
-      } else if (inf[i] == ')') {
+        stack1.push(i);
+      } else if (i == ')') {
         char helper = stack1.get();
         while (getPrior(helper) >= prior) {
           postvir += helper;
@@ -66,7 +66,7 @@ std::string infx2pstfx(std::string inf) {
           stack1.pop();
           helper = stack1.get();
         }
-        stack1.push(inf[i]);
+        stack1.push(i);
       }
     }
   }
