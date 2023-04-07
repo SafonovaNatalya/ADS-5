@@ -93,27 +93,27 @@ int counting(const int& i, const int& j, const int& ch) {
 }
 
 int eval(std::string pref) {
-  TStack<int, 100> stack2;
-  std::string helper = "";
-  for (int i = 0; i < pref.size(); i++) {
-    if (getPrior(pref[i]) == -1) {
-      if (pref[i] == ' ') {
-        continue;
-      } else if (isdigit(pref[i+1])) {
-        helper += pref[i];
-        continue;
-      } else {
-        helper += pref[i];
-        stack2.push(atoi(helper.c_str()));
-        helper = "";
-      }
-    } else {
-      int j = stack2.get();
-      stack2.pop();
-      int k = stack2.get();
-      stack2.pop();
-      stack2.push(counting(j, k, pref[i]));
+    TStack<int, 100> stack2;
+    std::string helper = "";
+    for (int i = 0; i < pref.size(); i++) {
+        if (getPrior(pref[i]) == -1) {
+            if (pref[i] == ' ') {
+                continue;
+            } else if (isdigit(pref[i + 1])) {
+                helper += pref[i];
+                continue;
+            } else {
+                helper += pref[i];
+                stack2.push(atoi(helper.c_str()));
+                helper = "";
+            }
+        } else {
+            int j = stack2.get();
+            stack2.pop();
+            int k = stack2.get();
+            stack2.pop();
+            stack2.push(vashislenia(k, j, pref[i]));
+        }
     }
-  }
-  return stack2.get();
+    return stack2.get();
 }
