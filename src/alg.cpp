@@ -54,7 +54,7 @@ std::string infx2pstfx(std::string inf) {
     }
   if (2 >= postvir.length()) {
     return postvir;
-  };
+  }
     int k = 2 - postvir.length() % 2;
     std::string otvet(postvir, 0, k);
     for (auto it = postvir.begin() + k; it != postvir.end();) {
@@ -76,7 +76,7 @@ int counting(int i, int j, char ch) {
   }
   return 0;
 }
-  
+
 int eval(std::string pref) {
   TStack<int, 100> stack2;
   std::string helper = "";
