@@ -112,7 +112,7 @@ int eval(std::string pref) {
             stack2.pop();
             int k = stack2.get();
             stack2.pop();
-            stack2.push(vashislenia(k, j, pref[i]));
+            stack2.push(counting(k, j, pref[i]));
         }
     }
     return stack2.get();
