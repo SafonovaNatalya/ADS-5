@@ -23,7 +23,7 @@ std::string infx2pstfx(std::string inf) {
   TStack<char, 100> stack1;
   std::string postvir = "";
   for (int i = 0; i < strlen(inf); i++) {
-    int prior = getPrior (inf[i]);
+    int prior = getPrior(inf[i]);
     if (prior == -1) {
       postvir += inf[i];
     } else {
@@ -52,7 +52,9 @@ std::string infx2pstfx(std::string inf) {
         postvir += stack1.get();
         stack1.pop();
     }
-  if (2 >= postvir.length()) return postvir;
+  if (2 >= postvir.length()) {
+    return postvir;
+  };
     int k = 2 - postvir.length() % 2;
     std::string otvet(postvir, 0, k);
     for (auto it = postvir.begin() + k; it != postvir.end();) {
@@ -87,7 +89,7 @@ int eval(std::string pref) {
         continue;
       } else {
         helper += pref[i];
-        stack2.push (atoi(helper.c_str()));
+        stack2.push(atoi(helper.c_str()));
         helper = "";
       }
     } else {
