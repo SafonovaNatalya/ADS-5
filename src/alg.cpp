@@ -59,10 +59,11 @@ std::string infx2pstfx(std::string inf) {
       postvir = postvir + stack1.pop(stack[helper]) + " ";
       helper--;
      }
-    }
+    } 
   }
-  return std::string(postvir);
 }
+  return std::string(postvir);
+}/
 
 int counting(int i, int j, char ch) {
   switch (ch) {
