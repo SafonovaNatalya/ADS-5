@@ -28,12 +28,12 @@ std::string infx2pstfx(std::string inf) {
      (inf[i] = '4') || (inf[i] = '5') || (inf[i] = '6') || (inf[i] = '7') ||
      (inf[i] = '8') || (inf[i] = '9'))
   postvir = postvir + inf[i] + " ";
-  else
+  else {
   if (inf[i] == '(') {
     stack1.push(inf[i]);
     helper += 1;
   }
-  else
+  else {
     if ((inf[i] == '+') || (inf[i] == '-') || (inf[i] == '*') || (inf[i] == '/')) {
      if (getPrior(inf[i]) > getPrior(stack1[helper]) || (isEmpty())) {
       stack1.push(inf[i]);
@@ -44,6 +44,7 @@ std::string infx2pstfx(std::string inf) {
       stack1.push(inf[i]);
      }
     }
+  }
     else if (inf[i] == ')') {
      while (stack1[helper] != '(') {
       postvir = postvir + stack1.pop(stack[helper]) + " ";
@@ -60,6 +61,7 @@ std::string infx2pstfx(std::string inf) {
       helper--;
      }
     }
+  }
   return std::string(postvir);
 }
 
