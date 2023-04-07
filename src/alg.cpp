@@ -93,9 +93,11 @@ int eval(std::string pref) {
   helper = helper.substr((helper->IndexOf(" ")) + 1, (strlen(helper) - 1));
   }
   else if ((helper[i] = '+') || (helper[i] = '-') || (helper[i] = '*') || (helper[i] = '/')) {
-  stack2.push(counting(stack2.pop(stack2[size - 1]), stack2.pop(stack2[size]), helper[i]);
+  stack2.push(counting(stack2.pop(stack2[size - 1]), 
+                       stack2.pop(stack2[size]), helper[i]);
   helper = helper.substr((helper->IndexOf(" ")) + 1, (strlen(helper) - 1));
   size--;
+              }
   }
   }
   return stack[size];
