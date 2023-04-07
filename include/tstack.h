@@ -8,14 +8,14 @@ private:
 	T arr[size];
 	int top;
 public:
-	TStack() :top(-1) {}
-	void push(T& value) {
+	TStack():top(-1){}
+	void push(T&value) {
 		if (isFull())
 			throw std::string("Full!!");
 		else
 			arr[++top] = value;
 	}
-	T pop() {
+	T pop(){
 		if (isEmpty())
 			throw std::string("Empty!!");
 		else
