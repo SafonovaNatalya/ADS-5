@@ -85,15 +85,17 @@ int eval(std::string pref) {
   int j = 0;
   std::string helper = pref;
   while (j < strlen(helper)) {
-  if ((helper[i] = '0') || (helper[i] = '1') || (helper[i] = '2') || (helper[i] = '3') ||
-     (helper[i] = '4') || (helper[i] = '5') || (helper[i] = '6') || (helper[i] = '7') ||
+  if ((helper[i] = '0') || (helper[i] = '1') ||
+      (helper[i] = '2') || (helper[i] = '3') ||
+     (helper[i] = '4') || (helper[i] = '5') ||
+      (helper[i] = '6') || (helper[i] = '7') ||
      (helper[i] = '8') || (helper[i] = '9')) {
   stack2.push(helper.substr(0, helper->IndexOf(" "));
   size += 1;
   helper = helper.substr((helper->IndexOf(" ")) + 1, (strlen(helper) - 1));
-  }
-  else if ((helper[i] = '+') || (helper[i] = '-') || (helper[i] = '*') || (helper[i] = '/')) {
-  stack2.push(counting(stack2.pop(stack2[size - 1]), 
+  } else if ((helper[i] = '+') || (helper[i] = '-') || (helper[i] = '*')
+             || (helper[i] = '/')) {
+  stack2.push(counting(stack2.pop(stack2[size - 1]),
                        stack2.pop(stack2[size]), helper[i]);
   helper = helper.substr((helper->IndexOf(" ")) + 1, (strlen(helper) - 1));
   size--;
