@@ -4,9 +4,9 @@
 
 template<typename T, int size>
 class TStack {
-	private:
-		T arr[size];
-		int top;
+   private:
+      T arr[size];
+      int top;
 	public:
 		TStack():top(-1){}
 		void push(T&value) {
