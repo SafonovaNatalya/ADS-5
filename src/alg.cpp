@@ -1,8 +1,8 @@
 // Copyright 2021 NNTU-CS
 #include <string>
 #include <map>
-#include "tstack.h"
 #include <cstring>
+#include "tstack.h"
 
 int getPrior(char ch) {
   switch (ch) {
