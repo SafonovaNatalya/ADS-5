@@ -43,7 +43,7 @@ std::string workspace(const std::string& stroka) {
 
 std::string infx2pstfx(std::string inf) {
   TStack<char, 100> stack1;
-  std::string postvir = "";
+  std::string postvir;
   for (auto& i : inf) {
     int prior = getPrior(i);
     if (prior == -1) {
@@ -78,14 +78,14 @@ std::string infx2pstfx(std::string inf) {
   return postvir;
 }
 
-int counting(int i, int j, char ch) {
+int counting(const int& i, const int& j, const int& ch) {
   switch (ch) {
   case '+':
-  return i + j;
+  return i+j;
   case '-':
   return i-j;
   case '*':
-  return i * j;
+  return i*j;
   case '/':
   return i/j;
   default:
