@@ -64,7 +64,7 @@ std::string infx2pstfx(std::string inf) {
                     stack1.pop();
                     helper = stack1.get();
                 }
-                stack11.push(op);
+                stack1.push(op);
             }
         }
     }
