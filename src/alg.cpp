@@ -30,6 +30,17 @@ int getPrior(char ch) {
   }
 }
 
+std::string workspace(const std::string& stroka) {
+  if (2 >= stroka.length()) return stroka;
+  int k = 2 - stroka.length() % 2;;
+  std::string result(stroka, 0, k);
+  for (auto it = stroka.begin() + k; it != stroka.end();) {
+    result += ' '; 
+    result += *it++;;
+    }
+    return result;
+}
+
 std::string infx2pstfx(std::string inf) {
   TStack<char, 100> stack1;
   std::string postvir = "";
@@ -63,15 +74,8 @@ std::string infx2pstfx(std::string inf) {
         postvir += stack1.get();
         stack1.pop();
     }
-  if (2 >= postvir.length()) {
-    return postvir;
-  }
-    int k = 2 - postvir.length() % 2;
-    std::string otvet(postvir, 0, k);
-    for (auto it = postvir.begin() + k; it != postvir.end();) {
-        otvet += ' '; otvet += *it++;;
-    }
-    return otvet;
+  postvir = workspace(postvir);
+  return postvir;
 }
 
 int counting(int i, int j, char ch) {
