@@ -1,27 +1,26 @@
 // Copyright 2021 NNTU-CS
 #include <string>
 #include <map>
-#include <cstring>
 #include "tstack.h"
 
 int getPrior(char ch) {
   switch (ch) {
-  case '(':
+  case ('('):
   return 0;
   break;
-  case ')':
+  case (')'):
   return 1;
   break;
-  case '+':
+  case ('+'):
   return 2;
   break;
-  case '-':
+  case ('-'):
   return 2;
   break;
-  case '*':
+  case ('*'):
   return 3;
   break;
-  case '/':
+  case ('/'):
   return 3;
   break;
   default:
@@ -49,7 +48,7 @@ std::string infx2pstfx(std::string inf) {
     if (prior == -1) {
       postvir += i;
     } else {
-      if (stack1.get() < prior || prior == 0 || stack1.isEmpty()) {
+      if (prior == 0 || stack1.get() < prior || stack1.isEmpty()) {
         stack1.push(i);
       } else if (i == ')') {
         char helper = stack1.get();
@@ -80,13 +79,13 @@ std::string infx2pstfx(std::string inf) {
 
 int counting(const int& i, const int& j, const int& ch) {
   switch (ch) {
-  case '+':
+  case ('+'):
   return i+j;
-  case '-':
+  case ('-'):
   return i-j;
-  case '*':
+  case ('*'):
   return i*j;
-  case '/':
+  case ('/'):
   return i/j;
   default:
   break;
@@ -110,8 +109,10 @@ int eval(std::string pref) {
         helper = "";
       }
     } else {
-      int j = stack2.pop();
-      int k = stack2.pop();
+      int j = stack2.get();
+      stack2.pop();
+      int k = stack2.get();
+      stack2.pop();
       stack2.push(counting(j, k, pref[i]));
     }
   }
