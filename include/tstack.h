@@ -3,10 +3,10 @@
 #define INCLUDE_TSTACK_H_
 #include <string>
 
-template<typename T, int _k>
+template<typename T, int size>
 class TStack {
  private:
-  T arr[_k];
+  T arr[100];
   int top;
 
  public:
