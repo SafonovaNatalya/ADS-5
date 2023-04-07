@@ -53,15 +53,15 @@ std::string infx2pstfx(std::string inf) {
       helper--;
      }
     }
+   }
   }
     if (i == (strlen(inf) - 1)) {
      while (helper > -1) {
       postvir = postvir + stack1.pop(stack[helper]) + " ";
       helper--;
      }
-    } 
-  }
-}
+   } 
+} FOR
   return std::string(postvir);
 }/
 
