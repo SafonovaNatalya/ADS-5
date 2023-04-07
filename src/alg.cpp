@@ -34,8 +34,7 @@ std::string workspace(const std::string& stroka) {
   int k = 2 - stroka.length() % 2;;
   std::string result(stroka, 0, k);
   for (auto it = stroka.begin() + k; it != stroka.end();) {
-    result += ' ';
-    result += *it++;;
+    result += ' '; result += *it++;;
     }
     return result;
 }
