@@ -18,7 +18,6 @@ int getPrior(char ch) {
 	}
 	return -1;
 }
-
 std::string infx2pstfx(std::string inf) {
 	TStack<char, 100> stack1;
 	int helper = -1;
